@@ -106,10 +106,10 @@ export default function Jobs() {
                         return <button className="cards-style-detail" onClick={() => getDetail(job.id)}>
                             <Row style={{ width: "790px", height: "290px", marginLeft: "1px" }}>
                                 <Col sm={3} className="logo-side">
-                                    <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "30px" }} />
-                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", }}>{job.city}</Button>
-                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button>
-                                    <Moment fromNow>{job.time}</Moment>
+                                    <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "30px", marginTop:"10px" }} />
+                                    <h5><Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", }}>{job.city}</Button></h5>
+                                    <h5><Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button></h5>
+                                    <p><Moment fromNow>{job.time}</Moment></p>
 
                                 </Col>
                                 {/* {job.isHotjob ? (
