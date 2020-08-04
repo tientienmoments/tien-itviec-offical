@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+*{
+  background-color: #E0E5EC;
+}
+/* .card-style{
+  display: grid;
+  place-items: center;
+} */
+
+.multi-cards{
+display:flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+
+}
+.cards-style-detail{
+  width:800px;
+  height:300px;
+  margin-bottom: 30px;
+}
+.logo-side{
+  display:flex;
+justify-content: space-around;
+flex-direction: column;
+align-items: center;
+
+}
+img{
+  box-shadow: 9px 9px 16px rgba(137, 144, 155, 0.726), -9px -9px 16px rgba(255, 255, 255, 0.616);
+}
+button {
+  background-color:#E0E5EC;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255, 255, 255, 0.616);
+  color: #4D3252;
+  font-weight: 700;
+  height: 96px;
+  margin-bottom: 48px;
+  margin-right: 48px;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  width: 96px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover:after {
+  opacity: 1;
+  top: 0;
+  left: 0;
+  transform: translateX(0);
+  transition-property: transform, opacity;
+  transition-duration: 0.7s, 0.15s;
+  transition-timing-function: ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:active:after {
+  opacity: 0;
+}
+
+
+/* job detail */
+.wrapper{
+  margin: 150px;
+}
+.card-w .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 60px 30px;
+  border-radius: 30px;
+  position: relative;
+  background: transparent;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width:1200px;
+}
+.card-w .card .card__text {
+  text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+/* inset */
+.card.inset {
+  box-shadow: inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.apply-style{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right:50px;
 }
