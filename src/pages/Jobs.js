@@ -6,23 +6,29 @@ import { Form, Row, Col, Button, Badge } from 'react-bootstrap'
 import Moment from 'react-moment'
 
 
+//muc dich de the hien ra ket quar khi co duong dan truc tiep
+//nen su dung usequery
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
 const QUERYSTR_PREFIX = "q";
+
+
 const apiAddress = process.env.REACT_APP_BACKEND_SERVER_URL
 
 export default function Jobs() {
     let [originalJobs, setOriginalJobs] = useState([]);
 
     let query = useQuery();
-    let [keyword, setKeyword] = useState(query.get(QUERYSTR_PREFIX));
+    let [keyword, setKeyword] = useState(query.get("q"));   //get query value... after the the q= .. muc dich.. thuc hien chuc nang search truc tiep khi co keyword , dong thoi load page
     let [jobList, setJobList] = useState([])
     let history = useHistory()
 
-
+    useEffect(()=>{
+        setKeyword(query.get("q"))
+    },[query.get("q")])
 
     const getData = async () => {
         try {
@@ -51,7 +57,7 @@ export default function Jobs() {
             e.preventDefault();
             history.push(`/jobs/?q=${keyword}`);
         }
-        if (keyword) {
+        if (keyword) {    //neu co keyword tu path,, thuc hien chuc nang search... neu khong co key word,, go directly to page
             filteredJobs = originalJobs.filter(job =>
                 job.title.toLowerCase().includes(keyword.toLowerCase())
             );
@@ -59,10 +65,17 @@ export default function Jobs() {
         setJobList(filteredJobs);
     };
 
-    useEffect(() => {
-        handleSearch();
-    }, [originalJobs]);
+    useEffect(() => {                   //thuc hien chuc nang search tren original list
+        handleSearch();  
+    }, [originalJobs]); 
+    
+    useEffect(()=>{
+        if(!keyword){
+            handleSearch()
+    };
+},[keyword])
 
+    console.log('huhuhuhu', keyword)                //
 
     useEffect(() => {
         console.log("hehehe")
