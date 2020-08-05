@@ -42,12 +42,14 @@ export default function Jobs() {
         history.push(`/jobs/${id}`)
     }
 
+//tao chuc nang search tu querry
+
     const handleSearch = (e) => {
         let filteredJobs = originalJobs;
 
         if (e) {
             e.preventDefault();
-            history.push(`/jobs/?${QUERYSTR_PREFIX}=${encodeURIComponent(keyword)}`);
+            history.push(`/jobs/?q=${keyword}`);
         }
         if (keyword) {
             filteredJobs = originalJobs.filter(job =>
