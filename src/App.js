@@ -31,7 +31,7 @@ function App() {
       <Switch>
       <Route exact path="/" component={Jobs}/>
       <Route exact path ="/login" component={Login}/>
-      {/* <Route exact path ="/jobs" component={Jobs}/> */}
+      <Route exact path ="/jobs" component={Jobs}/>
       <ProtectedRoute
       path ="/jobs/:id" 
       render ={(props)=> <Detail jobtitle="hahaha" props={props}/>}

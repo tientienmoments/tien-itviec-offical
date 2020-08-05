@@ -87,8 +87,7 @@ export default function Jobs() {
                             <Form.Control
                                 id="search"
                                 type="text"
-                                // value={searchTerm}
-                                // onChange={handleChange}
+                                
                                 placeholder="Keyword skill(Java,IOS...),Job Title..."
                                 onChange={(e) => setKeyword(e.target.value)}
                             ></Form.Control>
@@ -106,10 +105,10 @@ export default function Jobs() {
                         return <button className="cards-style-detail" onClick={() => getDetail(job.id)}>
                             <Row style={{ width: "790px", height: "290px", marginLeft: "1px" }}>
                                 <Col sm={3} className="logo-side">
-                                    <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "30px" }} />
+                                    <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "30px", marginTop:"10px" }} />
                                     <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", }}>{job.city}</Button>
                                     <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button>
-                                    <Moment fromNow>{job.time}</Moment>
+                                    <p style={{marginBottom:"10px"}}><Moment fromNow>{job.time}</Moment></p>
 
                                 </Col>
                                 {/* {job.isHotjob ? (
