@@ -112,18 +112,20 @@ export default function Jobs() {
                 </Form>
             </div>
 
-            <div className="card-style">
+            <div className="arrange-cards" >
 
-                <div className="multi-cards">
+                
 
                     {jobList.map((job) => {
-                        return <button className="cards-style-detail" onClick={() => getDetail(job.id)}>
-                            <Row style={{ width: "790px", height: "290px", marginLeft: "1px" }}>
-                                <Col sm={3} className="logo-side">
-                                    <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "30px", marginTop:"10px" }} />
-                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", }}>{job.city}</Button>
+                        return <button className="cards-style" onClick={() => getDetail(job.id)}>
+                            
+                                <Col sm={3} className="left-side">
+                                    <img src={job.img} alt="logo" style={{borderRadius:"50px", marginBottom:"40px"}}/>
+                                    <div style={{width:"130px"}}>
+                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", marginBottom:"10px" }}>{job.city}</Button>
                                     <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button>
-                                    <p style={{marginBottom:"10px"}}><Moment fromNow>{job.time}</Moment></p>
+                                    </div>
+                                    <p><Moment fromNow>{job.time}</Moment></p>
 
                                 </Col>
                                 {/* {job.isHotjob ? (
@@ -132,7 +134,7 @@ export default function Jobs() {
                                         <div></div>
                                     )} */}
 
-                                <Col style={{ borderLeft: "0.5px solid rgb(209, 209, 209)" }} sm={9}>
+                                <Col sm={9}>
                                     <h4>{job.title}<span> {job.isHotjob ? (<Badge pill variant="danger">
                                         Hot
                                     </Badge>):(<div></div>)}</span></h4>
@@ -150,12 +152,12 @@ export default function Jobs() {
 
 
                                 </Col>
-                            </Row>
+                        
                         </button>
                     })}
 
 
-                </div>
+                
 
 
 

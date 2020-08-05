@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import './App.css';
+
 import Homepage from './pages/Homepage'
 import Login from './Login'
 import Jobs from './pages/Jobs'
 import Detail from './pages/Detail'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   const [user, setUser] = useState({ isAuthenticated: true });
