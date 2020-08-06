@@ -114,9 +114,7 @@ export default function Jobs() {
 
             <div className="arrange-cards" >
 
-                
-
-                    {jobList.map((job) => {
+                 {jobList.map((job) => {
                         return <button className="cards-style" onClick={() => getDetail(job.id)}>
                             
                                 <Col sm={3} className="left-side">
@@ -128,11 +126,7 @@ export default function Jobs() {
                                     <p><Moment fromNow>{job.time}</Moment></p>
 
                                 </Col>
-                                {/* {job.isHotjob ? (
-                                    <div className="hotjob-label">Hot Job</div>
-                                ) : (
-                                        <div></div>
-                                    )} */}
+                                
 
                                 <Col sm={9}>
                                     <h4>{job.title}<span> {job.isHotjob ? (<Badge pill variant="danger">
