@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import Homepage from './pages/Homepage'
 import Login from './Login'
 import Jobs from './pages/Jobs'
 import Detail from './pages/Detail'
 import {Switch, Route, Redirect} from 'react-router-dom'
+import { useSelector } from "react-redux";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
+
+
 function App() {
-  const [user, setUser] = useState({ isAuthenticated: true });
+  let user = useSelector((state) => state.user);
 
   const ProtectedRoute = (props) => {
     if (user.isAuthenticated === true) {
