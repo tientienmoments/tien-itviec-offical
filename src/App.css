@@ -1,6 +1,13 @@
 *{
   background-color: #E0E5EC;
 }
+.page-name{
+display:flex;
+justify-content: center;
+flex-direction: row;
+margin: 30px;
+font-size: 40px;
+}
 .arrange-cards{
   display:flex;
   justify-content: center;

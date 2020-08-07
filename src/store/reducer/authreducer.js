@@ -5,23 +5,35 @@ let initialState = {
     isAuthenticated: false,
   },
   error: "",
-  loading: false,
+  // loading: false,
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case "LOGIN":
-      state.user.email = action.payload.email;
-      state.user.password = action.payload.password;
-      state.user.isAuthenticated = true;
-      state.error = "";
-      break;
+      // state.user.email = action.payload.email;
+      // state.user.password = action.payload.password;
+      // state.user.isAuthenticated = true;
+      // state.error = "";
+      
+      // break;
+      return {
+        ... state,
+        user: {
+          ...state.user,
+          email: action.payload.email,
+          password: action.payload.password,
+          isAuthenticated: true,
+        }
+
+
+      }
       case "LOGIN_FAIL":
-      state.loading = false;
+      // state.loading = false;
       state.error = action.payload;
       state.user.isAuthenticated = false;
       break;
-      
+
     
   }
   console.log("state", state, "user", state.user);

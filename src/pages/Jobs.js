@@ -26,9 +26,9 @@ export default function Jobs() {
     let [jobList, setJobList] = useState([])
     let history = useHistory()
 
-    useEffect(()=>{
+    useEffect(() => {
         setKeyword(query.get("q"))
-    },[query.get("q")])
+    }, [query.get("q")])
 
     const getData = async () => {
         try {
@@ -48,7 +48,7 @@ export default function Jobs() {
         history.push(`/jobs/${id}`)
     }
 
-//tao chuc nang search tu querry
+    //tao chuc nang search tu querry
 
     const handleSearch = (e) => {
         let filteredJobs = originalJobs;
@@ -66,14 +66,14 @@ export default function Jobs() {
     };
 
     useEffect(() => {                   //thuc hien chuc nang search tren original list
-        handleSearch();  
-    }, [originalJobs]); 
-    
-    useEffect(()=>{
-        if(!keyword){
+        handleSearch();
+    }, [originalJobs]);
+
+    useEffect(() => {
+        if (!keyword) {
             handleSearch()
-    };
-},[keyword])
+        };
+    }, [keyword])
 
     console.log('huhuhuhu', keyword)                //
 
@@ -91,6 +91,10 @@ export default function Jobs() {
 
     return (
         <div>
+            <div className="page-name">
+                <button style={{width:"200px", height:"80px"}}>Jobs</button>
+                <button style={{width:"200px", height:"80px"}}>Looking</button>
+            </div>
             <div>
                 <Form onSubmit={handleSearch} style={{ margin: "40px" }} >
                     <Form.Group as={Row}>
@@ -102,7 +106,7 @@ export default function Jobs() {
                             <Form.Control
                                 id="search"
                                 type="text"
-                                
+
                                 placeholder="Keyword skill(Java,IOS...),Job Title..."
                                 onChange={(e) => setKeyword(e.target.value)}
                             ></Form.Control>
@@ -114,44 +118,44 @@ export default function Jobs() {
 
             <div className="arrange-cards" >
 
-                 {jobList.map((job) => {
-                        return <button className="cards-style" onClick={() => getDetail(job.id)}>
-                            
-                                <Col sm={3} className="left-side">
-                                    <img src={job.img} alt="logo" style={{borderRadius:"50px", marginBottom:"40px"}}/>
-                                    <div style={{width:"130px"}}>
-                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", marginBottom:"10px" }}>{job.city}</Button>
-                                    <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button>
-                                    </div>
-                                    <p><Moment fromNow>{job.time}</Moment></p>
+                {jobList.map((job) => {
+                    return <button className="cards-style" onClick={() => getDetail(job.id)}>
 
-                                </Col>
-                                
+                        <Col sm={3} className="left-side">
+                            <img src={job.img} alt="logo" style={{ borderRadius: "50px", marginBottom: "40px" }} />
+                            <div style={{ width: "130px" }}>
+                                <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px", marginBottom: "10px" }}>{job.city}</Button>
+                                <Button variant="light" style={{ fontWeight: "bold", height: "40px", width: "130px" }}>District: {job.district}</Button>
+                            </div>
+                            <p><Moment fromNow>{job.time}</Moment></p>
 
-                                <Col sm={9}>
-                                    <h4>{job.title}<span> {job.isHotjob ? (<Badge pill variant="danger">
-                                        Hot
-                                    </Badge>):(<div></div>)}</span></h4>
-
-                                    <hr></hr>
-                                    <div >
-                                        <h4 style={{ textAlign: "right" }}>{job.salary} $</h4>
-                                        <h4 style={{ textAlign: "left" }}>Benefits</h4>
-                                        <ul style={{ textAlign: "left" }}>{job.benefits.map((benefit) => { return <li>{benefit}</li> })}</ul>
-                                        <h5 style={{ textAlign: "left" }}>{job.tags.map((tag) => { return <Badge pill variant="secondary" style={{ margin: "5px" }}>{tag} </Badge> })}</h5>
+                        </Col>
 
 
-                                    </div>
+                        <Col sm={9}>
+                            <h4>{job.title}<span> {job.isHotjob ? (<Badge pill variant="danger">
+                                Hot
+                            </Badge>) : (<div></div>)}</span></h4>
+
+                            <hr></hr>
+                            <div >
+                                <h4 style={{ textAlign: "right" }}>{job.salary} $</h4>
+                                <h4 style={{ textAlign: "left" }}>Benefits</h4>
+                                <ul style={{ textAlign: "left" }}>{job.benefits.map((benefit) => { return <li>{benefit}</li> })}</ul>
+                                <h5 style={{ textAlign: "left" }}>{job.tags.map((tag) => { return <Badge pill variant="secondary" style={{ margin: "5px" }}>{tag} </Badge> })}</h5>
+
+
+                            </div>
 
 
 
-                                </Col>
-                        
-                        </button>
-                    })}
+                        </Col>
+
+                    </button>
+                })}
 
 
-                
+
 
 
 

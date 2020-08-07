@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Badge, Button, Row } from "react-bootstrap";
-
+import RotateLoader from "react-spinners/ClipLoader";
 
 
 const apiAddress = process.env.REACT_APP_BACKEND_SERVER_URL
@@ -28,7 +28,16 @@ export default function Detail({ jobtitle, props }) {
 
 
     if (job == null) {
-        return <div>loading</div>
+        return <div className="d-flex justify-content-center">
+        <RotateLoader
+        
+        size={150}
+        color={"light"}
+        
+        
+      />
+      </div>
+        
     }
 
     return (
